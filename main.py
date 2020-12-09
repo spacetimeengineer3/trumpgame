@@ -215,6 +215,7 @@ def main():
             if r == 0:
                 pygame.mixer.Channel(0).play(pygame.mixer.Sound("audio/bingsong.mp3"))
                 trump.image = pygame.image.load("images/tlose.png").convert_alpha()
+                allsprites.remove(bullets)
                 r = 1    
             trump.rect.y -= 10
             if trump.rect.y <= -400:
