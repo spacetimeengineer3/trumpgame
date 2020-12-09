@@ -7,24 +7,28 @@ pygame.init()
 
 clock = pygame.time.Clock()
 
+
 class Sans(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("images/sans.png").convert_alpha()
         self.rect = self.image.get_rect()
-               
+
+
 class Bullet(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("images/meteor.png").convert_alpha()
         self.rect = self.image.get_rect()
 
+
 class Trump(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("images/dtrump.png").convert_alpha()
         self.rect = self.image.get_rect()
-    
+
+
 white = (255, 255, 255)
 black = (  0,   0,   0)
 red = (255,0,0)
@@ -46,7 +50,7 @@ sans = Sans()
 sans.rect.x = 900
 sans.rect.y = 900
 
-clock = pygame.time.Clock()
+
 
 allsprites = pygame.sprite.Group()
 allsprites.add(sans)
@@ -136,20 +140,21 @@ def load_sounds():
     pygame.mixer.music.load("audio/bingsong.mp3")
 
 def trump_yell():
-    x = random.randint(1,30)
-    if x == 3:
+    yell = random.randint(1, 30)
+    if yell == 3:
         pygame.mixer.Channel(3).play(pygame.mixer.Sound("audio/drugs.mp3"))
-    if x == 6:
+    if yell == 6:
         pygame.mixer.Channel(4).play(pygame.mixer.Sound("audio/fired.mp3"))
-    if x == 9:
+    if yell == 9:
         pygame.mixer.Channel(5).play(pygame.mixer.Sound("audio/nein.mp3"))
-    if x == 12:
+    if yell == 12:
         pygame.mixer.Channel(6).play(pygame.mixer.Sound("audio/sue.mp3"))
-    if x == 15:
+    if yell == 15:
         pygame.mixer.Channel(7).play(pygame.mixer.Sound("audio/bye.mp3"))
              
 pygame.mixer.set_num_channels(10)
 score = 0
+
 def main():
     global sans
     global space
@@ -166,7 +171,6 @@ def main():
     r = 0
     n = 0
     halfh = screenHeight/2
-    halfw = screenWidth/2
     while main:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -201,13 +205,12 @@ def main():
         allsprites.draw(screen)
         screen.blit(text, [10, 0])
         
-        if score >= 270:
+        if score >= 20:
             winfont = pygame.font.Font(None, 100)
             wintext = winfont.render("YOU HAVE BEAT THE ORANGE MAN, YOU WIN!", True, white)    
             screen.blit(wintext, [30,  halfh])
             win = True
             if r == 0:
-                pygame.mixer.Channel(0).stop
                 pygame.mixer.Channel(0).play(pygame.mixer.Sound("audio/bingsong.mp3"))
                 trump.image = pygame.image.load("images/tlose.png").convert_alpha()
                 r = 1    
@@ -215,7 +218,7 @@ def main():
             if trump.rect.y <= -400:
                 allsprites.remove(trump)
     
-        #ALWAYS AT THE END
+#        ALWAYS AT THE END
         pygame.display.update()
         clock.tick(24)
                    
