@@ -34,7 +34,7 @@ icon = pygame.image.load("icon.png")
 screenWidth = 1920
 screenHeight = 1080
 screenSize = [screenWidth, screenHeight]
-screen = pygame.display.set_mode(screenSize, pygame.FULLSCREEN, pygame.RESIZABLE)
+screen = pygame.display.set_mode(screenSize),pygame.FULLSCREEN)
 pygame.display.set_caption("Nightmare")
 pygame.display.set_icon(icon)
 
