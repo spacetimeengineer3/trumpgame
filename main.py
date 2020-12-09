@@ -28,7 +28,7 @@ class Trump(pygame.sprite.Sprite):
         self.image = pygame.image.load("images/dtrump.png").convert_alpha()
         self.rect = self.image.get_rect()
 
-def get_size():
+def get_size(): #this will get the screen resolution via the appropriate OS commands and place it into two Variables called screenWidth and screenHeight
     pass
 
 white = (255, 255, 255)
