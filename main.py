@@ -34,7 +34,7 @@ icon = pygame.image.load("icon.png")
 screenWidth = 1920
 screenHeight = 1080
 screenSize = [screenWidth, screenHeight]
-screen = pygame.display.set_mode(screenSize),pygame.FULLSCREEN)
+screen = pygame.display.set_mode(screenSize, pygame.FULLSCREEN)
 pygame.display.set_caption("Nightmare")
 pygame.display.set_icon(icon)
 
@@ -119,7 +119,8 @@ def move_trump():
             
     if a < 200:
         trump.rect.x += xflip
-        
+        #trump.rect.y -= yflip
+        #Trump hits something and It doesn't bounce properly. Debug later.
 
     if  a>= 200:
         trump.rect.y += yflip
