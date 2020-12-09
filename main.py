@@ -207,7 +207,7 @@ def main():
         allsprites.draw(screen)
         screen.blit(text, [10, 0])
         
-        if score >= 20:
+        if score >= 270:
             winfont = pygame.font.Font(None, 100)
             wintext = winfont.render("YOU HAVE BEAT THE ORANGE MAN, YOU WIN!", True, white)    
             screen.blit(wintext, [30,  halfh])
