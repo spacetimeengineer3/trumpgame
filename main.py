@@ -155,15 +155,15 @@ def trump_yell():
         pygame.mixer.Channel(7).play(pygame.mixer.Sound("audio/bye.mp3"))
              
 pygame.mixer.set_num_channels(10)
-score = 0
+
 
 def main():
     global sans
-    global space
     global bullets
     global score
     win = False 
     load_sounds()
+    score = 0
     bg = pygame.image.load("images/l1back.jpg").convert_alpha()
 
     main = True
