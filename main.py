@@ -10,19 +10,19 @@ clock = pygame.time.Clock()
 class Sans(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("sans.png").convert_alpha()
+        self.image = pygame.image.load("images/sans.png").convert_alpha()
         self.rect = self.image.get_rect()
                
 class Bullet(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("meteor.png").convert_alpha()
+        self.image = pygame.image.load("images/meteor.png").convert_alpha()
         self.rect = self.image.get_rect()
 
 class Trump(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("dtrump.png").convert_alpha()
+        self.image = pygame.image.load("images/dtrump.png").convert_alpha()
         self.rect = self.image.get_rect()
     
 white = (255, 255, 255)
@@ -30,7 +30,7 @@ black = (  0,   0,   0)
 red = (255,0,0)
 green = (0,255,0)
 blue = (0,0,255)
-icon = pygame.image.load("icon.png")
+icon = pygame.image.load("images/icon.png")
 screenWidth = 1920
 screenHeight = 1080
 screenSize = [screenWidth, screenHeight]
@@ -83,7 +83,7 @@ def check_keys():
             allsprites.add(bullet)          
             
             pygame.mixer.Channel(1).set_volume(0.5)
-            pygame.mixer.Channel(1).play(pygame.mixer.Sound("blaster.ogg"))
+            pygame.mixer.Channel(1).play(pygame.mixer.Sound("audio/blaster.ogg"))
             x = 0
         else:
             x += 10
@@ -126,27 +126,27 @@ def move_trump():
         trump.rect.y += yflip
         
 def load_sounds():
-    pygame.mixer.music.load("undertale.mp3")
-    pygame.mixer.music.load("blaster.ogg")
-    pygame.mixer.music.load("drugs.mp3")
-    pygame.mixer.music.load("fired.mp3")
-    pygame.mixer.music.load("nein.mp3")
-    pygame.mixer.music.load("sue.mp3")
-    pygame.mixer.music.load("bye.mp3")
-    pygame.mixer.music.load("bingsong.mp3")
+    pygame.mixer.music.load("audio/undertale.mp3")
+    pygame.mixer.music.load("audio/blaster.ogg")
+    pygame.mixer.music.load("audio/drugs.mp3")
+    pygame.mixer.music.load("audio/fired.mp3")
+    pygame.mixer.music.load("audio/nein.mp3")
+    pygame.mixer.music.load("audio/sue.mp3")
+    pygame.mixer.music.load("audio/bye.mp3")
+    pygame.mixer.music.load("audio/bingsong.mp3")
 
 def trump_yell():
     x = random.randint(1,30)
     if x == 3:
-        pygame.mixer.Channel(3).play(pygame.mixer.Sound("drugs.mp3"))
+        pygame.mixer.Channel(3).play(pygame.mixer.Sound("audio/drugs.mp3"))
     if x == 6:
-        pygame.mixer.Channel(4).play(pygame.mixer.Sound("fired.mp3"))
+        pygame.mixer.Channel(4).play(pygame.mixer.Sound("audio/fired.mp3"))
     if x == 9:
-        pygame.mixer.Channel(5).play(pygame.mixer.Sound("nein.mp3"))
+        pygame.mixer.Channel(5).play(pygame.mixer.Sound("audio/nein.mp3"))
     if x == 12:
-        pygame.mixer.Channel(6).play(pygame.mixer.Sound("sue.mp3"))
+        pygame.mixer.Channel(6).play(pygame.mixer.Sound("audio/sue.mp3"))
     if x == 15:
-        pygame.mixer.Channel(7).play(pygame.mixer.Sound("bye.mp3"))
+        pygame.mixer.Channel(7).play(pygame.mixer.Sound("audio/bye.mp3"))
              
 pygame.mixer.set_num_channels(10)
 score = 0
@@ -157,11 +157,11 @@ def main():
     global score
     win = False 
     load_sounds()
-    bg = pygame.image.load("l1back.jpg").convert_alpha()
+    bg = pygame.image.load("images/l1back.jpg").convert_alpha()
 
     main = True
     pygame.mixer.Channel(0).set_volume(0.8)
-    pygame.mixer.Channel(0).play(pygame.mixer.Sound("undertale.mp3"))
+    pygame.mixer.Channel(0).play(pygame.mixer.Sound("audio/undertale.mp3"))
     z = 0
     r = 0
     n = 0
@@ -208,8 +208,8 @@ def main():
             win = True
             if r == 0:
                 pygame.mixer.Channel(0).stop
-                pygame.mixer.Channel(0).play(pygame.mixer.Sound("bingsong.mp3"))
-                trump.image = pygame.image.load("tlose.png").convert_alpha()
+                pygame.mixer.Channel(0).play(pygame.mixer.Sound("audio/bingsong.mp3"))
+                trump.image = pygame.image.load("images/tlose.png").convert_alpha()
                 r = 1    
             trump.rect.y -= 10
             if trump.rect.y <= -400:
