@@ -28,6 +28,8 @@ class Trump(pygame.sprite.Sprite):
         self.image = pygame.image.load("images/dtrump.png").convert_alpha()
         self.rect = self.image.get_rect()
 
+def get_size():
+    pass
 
 white = (255, 255, 255)
 black = (  0,   0,   0)
