@@ -6,7 +6,13 @@ import random
 pygame.init()
 
 clock = pygame.time.Clock()
-
+icon = pygame.image.load("images/icon.png")
+screenWidth = 1920
+screenHeight = 1080
+screenSize = [screenWidth, screenHeight]
+screen = pygame.display.set_mode(screenSize, pygame.FULLSCREEN)
+pygame.display.set_caption("Nightmare")
+pygame.display.set_icon(icon)
 
 class Sans(pygame.sprite.Sprite):
     def __init__(self):
@@ -36,13 +42,7 @@ black = (  0,   0,   0)
 red = (255,0,0)
 green = (0,255,0)
 blue = (0,0,255)
-icon = pygame.image.load("images/icon.png")
-screenWidth = 1920
-screenHeight = 1080
-screenSize = [screenWidth, screenHeight]
-screen = pygame.display.set_mode(screenSize, pygame.FULLSCREEN)
-pygame.display.set_caption("Nightmare")
-pygame.display.set_icon(icon)
+
 
 trump = Trump()
 trump.rect.x = 10
@@ -121,7 +121,6 @@ def move_trump():
         m = 0
     else:
         m = m +1
-        pass
             
     if a < 200:
         trump.rect.x += xflip
